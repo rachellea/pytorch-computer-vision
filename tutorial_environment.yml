@@ -5,67 +5,19 @@ channels:
   - anaconda
   - defaults
 dependencies:
-  - cycler=0.10.0=py35hcc71164_0
-  - icu=58.2=vc14hc45fdbb_0
-  - jpeg=9b=vc14h4d7706e_1
-  - kiwisolver=1.0.1=py35h6538335_0
-  - matplotlib=3.0.0=py35hd159220_0
-  - opencv=3.3.1=py35h20b85fd_1
-  - pandas=0.23.4=py35h830ac7b_0
-  - patsy=0.5.0=py35_0
-  - pillow=5.2.0=py35h08bbbbd_0
-  - pyparsing=2.4.7=py_0
-  - pyqt=5.9.2=py35ha878b3d_0
-  - python-dateutil=2.8.1=py_0
-  - pytz=2020.1=py_0
-  - qt=5.9.7=vc14h73c81de_0
-  - seaborn=0.9.0=pyh91ea838_1
-  - sip=4.19.12=py35h6538335_0
-  - sqlite=3.32.3=h2a8f88b_0
-  - statsmodels=0.9.0=py35h452e1ab_0
-  - tk=8.6.7=vc14hb68737d_1
-  - tornado=5.1.1=py35hfa6e2cd_0
-  - zlib=1.2.11=vc14h1cdd9ab_1
-  - libwebp=0.5.2=vc14_7
-  - blas=1.0=mkl
-  - ca-certificates=2020.6.24=0
-  - certifi=2018.8.24=py35_1
-  - cffi=1.11.5=py35h74b6da3_1
-  - cudatoolkit=10.0.130=0
-  - freetype=2.10.2=hd328e21_0
-  - icc_rt=2019.0.0=h0cc432a_1
-  - intel-openmp=2019.4=245
-  - libpng=1.6.37=h2a8f88b_0
-  - libtiff=4.1.0=h56a325e_1
-  - lz4-c=1.9.2=h62dcd97_1
-  - mkl=2018.0.3=1
-  - mkl_fft=1.0.6=py35hdbbee80_0
-  - mkl_random=1.0.1=py35h77b88f5_1
-  - ninja=1.8.2=py35he980bc4_1
-  - numpy=1.15.2=py35ha559c80_0
-  - numpy-base=1.15.2=py35h8128ebf_0
-  - olefile=0.46=py_0
-  - openssl=1.1.1g=he774522_1
-  - pip=10.0.1=py35_0
-  - pycparser=2.20=py_2
-  - python=3.5.6=he025d50_0
-  - scikit-learn=0.20.0=py35heebcf9a_1
-  - scipy=1.1.0=py35h4f6bf74_1
-  - setuptools=40.2.0=py35_0
-  - six=1.15.0=py_0
-  - tbb=2020.0=h74a9793_0
-  - tbb4py=2018.0.5=py35he980bc4_0
-  - vc=14.1=h0510ff6_4
-  - vs2015_runtime=14.16.27012=hf0eaf9b_3
-  - wheel=0.31.1=py35_0
-  - wincertstore=0.2=py35hfebbdb8_0
-  - xz=5.2.5=h62dcd97_0
-  - zstd=1.4.5=h04227a9_0
-  - pytorch=1.1.0=py3.5_cuda100_cudnn7_1
-  - torchvision=0.3.0=py35_cu100_1
+  - matplotlib=3.0.0
+  - opencv=3.3.1
+  - pandas=0.23.4
+  - pillow=5.2.0
+  - seaborn=0.9.0
+  - numpy=1.15.2
+  - pip=10.0.1
+  - python=3.5.6
+  - scikit-learn=0.20.0
+  - scipy=1.1.0
+  - pytorch=1.1.0
+  - torchvision=0.3.0
   - pip:
-    - pyqt5-sip==12.8.0
+    - pyqt5-sip
     - torch==1.1.0
-    - torchsummary==1.5.1
-prefix: C:\Users\Rachel\Anaconda3\envs\pace
-
+    - torchsummary
