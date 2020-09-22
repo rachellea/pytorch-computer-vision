@@ -160,17 +160,17 @@ def get_all_labels_string(labels_list): #Done with testing
 #################
 # Visualization #---------------------------------------------------------------
 #################
-def visualize_val_set(resample):
+def visualize_val_set(voc_dataset_dir, resample):
     """Make plots of the images and the ground truth segmentation from the
     validation set using matplotlib's interactive viewer.
-        
+    
+    <voc_dataset_dir>: path to the directory containing the VOC 2012 dataset
     <resample>: if True, resample to (320,320) before doing the visualization
         since currently you are doing resampling as a preprocessing step."""
-    voc_dataset_dir = 'C:\\Users\\Rachel\\Documents\\Data\\VOC2012'
-    setname = 'val'
     #When we load with no transforms, both the image and target will be
     #PIL images with pixel values in 0 - 255
-    dataset = torchvision.datasets.VOCSegmentation(voc_dataset_dir, year='2012',image_set=setname,download=False)
+    dataset = torchvision.datasets.VOCSegmentation(voc_dataset_dir, year='2012',
+                                            image_set='val', download=False)
     for img in range(0,3): #If you want to visualize more images, expand the range, e.g. (0,80)
         imagepil, targetpil = dataset[img]
         if resample:

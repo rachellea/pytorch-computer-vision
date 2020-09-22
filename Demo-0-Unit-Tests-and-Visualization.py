@@ -29,7 +29,16 @@ if __name__ == '__main__':
     unit_tests.run_all()
     
     #Run visualization sanity checks
-    #Shows whether the resampling result looks reasonable or not
-    custom_pascal.visualize_val_set(resample=False)
-    custom_pascal.visualize_val_set(resample=True)
+    #Change voc_dataset_dir to a directory in which you want to store the
+    #PASCAL VOC 2012 data:
+    voc_dataset_dir = 'C:\\Users\\Rachel\\Documents\\Data\\VOC2012'
+    #Uncomment the following line if you need to download the VOC 2012 dataset:
+    #dataset = torchvision.datasets.VOCSegmentation(voc_dataset_dir, year='2012', image_set='val', download=True)
+    
+    #The following visualizations demonstrate: (a) the images and ground truth
+    #are matched correctly, (b) the mapping from integers to strings (e.g.
+    #from 1 to 'airplane') is correct, and (c) the resampling result looks
+    #reasonable:
+    custom_pascal.visualize_val_set(voc_dataset_dir, resample=False)
+    custom_pascal.visualize_val_set(voc_dataset_dir, resample=True)
     
