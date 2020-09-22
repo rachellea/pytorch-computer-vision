@@ -39,6 +39,8 @@ if __name__ == '__main__':
     #are matched correctly, (b) the mapping from integers to strings (e.g.
     #from 1 to 'airplane') is correct, and (c) the resampling result looks
     #reasonable:
-    custom_pascal.visualize_val_set(voc_dataset_dir, resample=False)
-    custom_pascal.visualize_val_set(voc_dataset_dir, resample=True)
+    custom_pascal.visualize_val_set(voc_dataset_dir, resample=False,
+                                    images_to_visualize=3)
+    custom_pascal.visualize_val_set(voc_dataset_dir, resample=True,
+                                    images_to_visualize=3)
     
