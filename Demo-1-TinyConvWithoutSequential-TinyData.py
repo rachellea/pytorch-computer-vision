@@ -28,9 +28,11 @@ from models import custom_models_base
 from load_dataset import custom_tiny
 
 if __name__=='__main__':
+    general_results_dir='C:\\Users\\Rachel\\Documents\\Temp\\pytorch-computer-vision\\results'
+    
     tot0 = timeit.default_timer()
     run_experiment.DoExperiment(descriptor='TinyConvWithoutSequential_TinyData',
-            general_results_dir='C:\\Users\\Rachel\\Documents\\CarinLabResults\\pytorch-computer-vision\\results',
+            general_results_dir=general_results_dir,
             custom_net = custom_models_base.TinyConvWithoutSequential,
             custom_net_args = {},
             learning_rate = 1e-3, #default 1e-3

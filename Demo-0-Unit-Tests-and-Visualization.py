@@ -21,6 +21,8 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE
 
+import torchvision #only needed if you're downloading data for the first time
+
 from src import unit_tests
 from load_dataset import custom_pascal
 
