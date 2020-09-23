@@ -78,7 +78,7 @@ class VGG16(nn.Module):
     """Model with a VGG-16 feature extractor pretrained on ImageNet."""
     def __init__(self):
         super(VGG16, self).__init__()
-        vgg16 = models.vgg16(pretrained=False)
+        vgg16 = models.vgg16(pretrained=True)
         self.features = nn.Sequential(*(list(vgg16.children())[:-2]))
         self.conv = nn.Sequential(
                             nn.Conv2d(512, 256, kernel_size = (1,1), stride=(1,1), padding=0),
