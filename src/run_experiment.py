@@ -256,8 +256,15 @@ class DoExperiment(object):
         print("{:5s} {:<3d} {:11s} {:.3f}".format('Epoch', epoch, 'Test Loss', epoch_loss))
     
     def iterate_through_batches(self, model, dataloader, epoch, training):
-        #running_loss = 0
         epoch_loss = 0
+        
+        #Initialize numpy arrays for storing results. examples x labels
+        #Do NOT use concatenation, or else you will have memory fragmentation.
+        num_examples = len(dataloader.dataset)
+        num_labels = len(self.label_meanings)
+        pred_epoch = np.zeros([num_examples,num_labels])
+        gr_truth_epoch = np.zeros([num_examples,num_labels])        
+        
         for batch_idx, batch in enumerate(dataloader):
             data = batch['data'].to(self.device)
             gr_truth = batch['label'].to(self.device)
@@ -279,22 +286,19 @@ class DoExperiment(object):
             epoch_loss += loss.item()
             torch.cuda.empty_cache()
             
-            #Save binary predictions and ground truth
+            #Save predictions and ground truth across batches
             #Note that torch.nn.Sigmoid(somedata) doesn't work. You first
             #define sigmoid = torch.nn.Sigmoid() and then you can call
             #sigmoid(somedata)
             sigmoid = torch.nn.Sigmoid()
             pred = sigmoid(out_dict['out'].data).detach().cpu().numpy()
             gr_truth = gr_truth.detach().cpu().numpy()
-          
-            #Save across batches:
-            if batch_idx == 0:
-                pred_epoch = pred
-                gr_truth_epoch = gr_truth
-            else:
-                pred_epoch = np.concatenate((pred_epoch, pred), axis = 0)
-                gr_truth_epoch = np.concatenate((gr_truth_epoch, gr_truth), axis = 0)
-                
+            
+            start_row = batch_idx*self.batch_size
+            stop_row = min(start_row + self.batch_size, num_examples)
+            pred_epoch[start_row:stop_row,:] = pred #pred_epoch is e.g. [25355,80] and pred is e.g. [1,80] for a batch size of 1
+            gr_truth_epoch[start_row:stop_row,:] = gr_truth #gr_truth_epoch has same shape as pred_epoch
+            
             #the following line to empty the cache is helpful in order to
             #reduce memory usage and avoid OOM error:
             torch.cuda.empty_cache()
